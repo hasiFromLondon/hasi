@@ -17,6 +17,7 @@
 using namespace std;
 
 
+
 void *myThread(void *);
 Bilding *ptrBild;
 pthread_mutex_t mutexElevator = PTHREAD_MUTEX_INITIALIZER; 
