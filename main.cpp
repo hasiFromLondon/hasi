@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <stdlib.h> 
 //#include <Windows.h>
-//#include <dos.h>
+#include "itime.h"
 #include <pthread.h>
 #include <sys/time.h>
 using namespace std;
@@ -26,7 +26,10 @@ int main (int argc,char * argv[])
 {
 
     cout << "arg =" << argc << endl;
-    ptrBild = new Bilding(20,4,3.0);    
+    {
+        Itime time1("create Bilding");
+        ptrBild = new Bilding(20,4,3.0);    
+    }
     ptrBild->getInfo();
  //   bild.callElevator(10,DIRECTION_UP);
  //   bild.callElevator(99,DIRECTION_DOWN);
@@ -35,14 +38,20 @@ int main (int argc,char * argv[])
     pthread_attr_t attr;
     pthread_attr_init(&attr);
     
-    pthread_create(&thread,&attr,&myThread,NULL);
+//    pthread_create(&thread,&attr,&myThread,NULL);
     	
-	for (int i = 0 ; i < 100 ; i++)
+/*	for (int i = 0 ; i < 100 ; i++)
 	{
 		ptrBild->updateTimeLevel(time(NULL));
 		ptrBild->showAllFloorStateDirection();
 		sleep(1);
-	}
+	}*/
+    {
+        Itime timeTestSleep("test sleep(1) ");
+        sleep(1);
+    }	
+	
+    std::cout << R"(test raw literals - ''""<>{}/\/\/)" << endl;
     return 9;
 }
 
