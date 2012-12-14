@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-c -Wall -g
+CFLAGS=-c -Wall -g -std=c++11
 LDFLAGS= -pthread
 SOURCES=main.cpp elevator.cpp bilding.cpp level.cpp man.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
