@@ -52,7 +52,7 @@ int main (int argc,char * argv[])
     }	
 	
     std::cout << R"(test raw literals - ''""<>{}/\/\/)" << endl;
-    return 9;
+    return 0;
 }
 
 void *myThread(void*)
